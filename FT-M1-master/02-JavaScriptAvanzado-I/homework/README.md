@@ -27,7 +27,15 @@ var c = function(a, b, c) {
 c(8,9,10);
 console.log(b);
 console.log(x);
+// ORDEN DE IMPRECION
+// 1º: 10
+// 2º: 8
+// 3º: 8
+// 4º: 9
+// 5º: 10
+// 6º: 1
 ```
+
 
 ```javascript
 console.log(bar);
@@ -36,6 +44,9 @@ foo();
 function foo() { console.log('Hola!'); }
 var bar = 1;
 baz = 2;
+//ORDEN DE IMPRESIONES
+// 1º: Undefined
+// 2º: Error
 ```
 
 ```javascript
@@ -44,6 +55,8 @@ if(true) {
     var instructor = "Franco";
 }
 console.log(instructor);
+//ORDEN DE IMPRESIONES
+// 1º: Franco
 ```
 
 ```javascript
@@ -56,6 +69,10 @@ console.log(instructor);
    }
 })();
 console.log(instructor);
+//ORDEN DE IMPRESIONES
+// 1º: Tony
+// 2º: Franco
+// 3º: Tony
 ```
 
 ```javascript
@@ -69,28 +86,34 @@ if (true) {
 }
 console.log(instructor);
 console.log(pm);
+//ORDEN DE IMPRESIONES
+// 1º: The Falsh
+// 2º: Reverse Falsh
+// 3º: The Flash
+// 4º: franco
+
 ```
 ### Coerción de Datos
 
 ¿Cuál crees que será el resultado de la ejecución de estas operaciones?:
 
 ```javascript
-6 / "3"
-"2" * "3"
-4 + 5 + "px"
-"$" + 4 + 5
-"4" - 2
-"4px" - 2
-7 / 0
-{}[0]
-parseInt("09")
-5 && 2
-2 && 5
-5 || 0
-0 || 5
-[3]+[3]-[10]
-3>2>1
-[] == ![]
+6 / "3" // 2
+"2" * "3" // 6
+4 + 5 + "px" // "9px"
+"$" + 4 + 5 // "$45"
+"4" - 2 //2
+"4px" - 2 //NaN
+7 / 0//Infinity
+{}[0]//[0]
+parseInt("09")//NaN
+5 && 2 // 2
+2 && 5 // 5
+5 || 0 // 5
+0 || 5 // 0
+[3]+[3]-[10]//23 por que?
+3>2>1 // false
+[] == ![] //true
 ```
 
 > Si te quedó alguna duda repasá con [este artículo](http://javascript.info/tutorial/object-conversion).
@@ -112,6 +135,16 @@ function test() {
 }
 
 test();
+
+//ORDEN DE IMPRESIONES
+// 1°: undefined
+// 2°: 2
+//EXPLICACION
+/*En el proceso de Hoisting se realiza un movimiento por el interprete de las
+  declaraciones dentro del codigo haciendo posible que la funcion foo se ejecute
+  dentro del console.log
+*/
+
 ```
 
 Y el de este código? :
@@ -128,6 +161,9 @@ function getFood(food) {
 }
 
 getFood(false);
+
+//ORDEN DE IMPRESIONES
+// 1°: Indefined
 ```
 
 
@@ -152,6 +188,9 @@ console.log(obj.prop.getFullname());
 var test = obj.prop.getFullname;
 
 console.log(test());
+
+//1°: Aurelio de Rosas
+//2°: Juan Perez
 ```
 
 ### Event loop
@@ -167,4 +206,7 @@ function printing() {
 }
 
 printing();
+// Orden de impresion
+// 1,4,3,2
+//
 ```
