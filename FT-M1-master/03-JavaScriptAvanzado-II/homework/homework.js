@@ -8,6 +8,8 @@ function counter() {
 
   La función counter debe retornar otra función. Esta función retornada debe actuar como un contador, retornando un valor numérico que empieza en 1 e incrementa con cada invocación.
 
+  //+ funmcion que retorna otra funcion
+  //+ Utiliza una herramienta del lexical environment
   Ejemplo:
   const nuevoContador = counter()
   nuevoContador()     // 1
@@ -19,6 +21,12 @@ function counter() {
   otroContador()      // 2
   otroContador()      // 3
    */
+  let contador=1;
+
+  return function (){
+    return contador++;
+  }
+  
 }
 
 function cacheFunction(cb) {
@@ -41,6 +49,16 @@ function cacheFunction(cb) {
   squareCache(5)    // no volverá a invocar a square, simplemente buscará en la caché cuál es el resultado de square(5) y lo retornará (tip: si usaste un objeto, podés usar hasOwnProperty) 
 
   */
+  let cache = {}
+  return function(argumento){
+    if(cache.hasOwnProperty(argumento)){
+      return cache[argumento]
+    }else{
+      cache[argumento] = cb(argumento)
+      return cache[argumento]
+    }
+  }
+
 }
 
 // Bind
@@ -67,8 +85,8 @@ function getNombre() {
   Usando el método bind() guardar, en las dos variables declaradas a continuación, dos funciones que actúen como getNombre pero retornen el nombre del instructor y del alumno, respectivamente.
 */
 
-let getNombreInstructor;
-let getNombreAlumno;
+let getNombreInstructor = getNombre.bind(instructor);
+let getNombreAlumno = getNombre.bind(alumno);
 
 /*
   Ejercicio 4
@@ -80,9 +98,9 @@ function crearCadena(delimitadorIzquierda, delimitadorDerecha, cadena) {
   return delimitadorIzquierda + cadena + delimitadorDerecha;
 }
 
-let textoAsteriscos;
-let textoGuiones;
-let textoUnderscore;
+let textoAsteriscos = crearCadena.bind(this, "*", "*"); // this apunta a la funcion  --> crearCadena(cadena) --> crearCadena(this, arg1, arg2,..,arg1)
+let textoGuiones = crearCadena.bind(this,"-","-");
+let textoUnderscore= crearCadena.bind(this,"_","_");
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
