@@ -81,7 +81,7 @@ Implementación de la función insertar al final:
 ```javascript
 List.prototype.add = function(data) {
     var node = new Node(data),
-    current = this.head;
+    current = this.head; //null
     // Si está vacia
     if (!current) {
         this.head = node;
@@ -89,7 +89,7 @@ List.prototype.add = function(data) {
         return node;
     }
     // Si no esta vacia, recorro hasta encontrar el último
-    while (current.next) {
+    while (current.next) { // Esto es igual a current==null?
         current = current.next;
     }
     current.next = node;
