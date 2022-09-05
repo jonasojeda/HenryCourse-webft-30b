@@ -116,7 +116,7 @@ Node.prototype.print = function(s){
 	if(this.right) this.right.print(s);
 }
 
-Node.prototype.add = function(v,r){
+Node.prototype.add = function(v,r){ //r = root //  v=value
 	if(!r) var r = this;
 	if( v < this.data){
 		if(this.left === null){

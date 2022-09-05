@@ -21,9 +21,79 @@ function Node(value) {
   this.next = null;
 }
 
-LinkedList.prototype.add=function(){};
-LinkedList.prototype.remove=function(){};
-LinkedList.prototype.search=function(){};
+LinkedList.prototype.add =function(data) {
+    let node = new Node(data), //instanciamos un objeto nodo y guaradamos en una variable
+
+    current = this.head; //nos ubicamos en la cabeza de la lista
+
+    //Pregunto si la lista es vacia
+    if (!current) {
+        this.head = node;//Ubico el objeto en la cabeza de la lista
+        this._length++; //Incremento el valor length en caso de ser necesario
+        return node;// retorno el nodo
+    }
+
+    // Si no esta vacia, recorro hasta encontrar el último
+    while (current.next) { // Mientras el objeto.next(atributo donde se guarda el enlace del siguiente objeto)
+        
+      current = current.next;// En caso de ser verdadero avanzo en mi nodo ubicandome en el siguiente enlace (obj.next)
+    }
+    current.next = node;//Una vez que se encuentra el Objeto con el enlace = null (obj.next==null) guardo el objeto node
+    this._length++;//Incremento Length en caso de ser neces
+};
+
+LinkedList.prototype.remove=function(){
+  //En caso de que la lista este vacia
+  if(!this.head)return null;
+  //en caso de que solo exits un elemento
+  if(this.head.next === null){
+    let aux = this.head;
+    this.head = null;
+    this._length--;
+    return aux.value;
+  }else{//EN caso de tener mas de un elemento
+    let current = this.head;
+    while(current.next.next!=null){
+      current =current.next;
+    }
+    let aux = current.next.value;
+    current.next =null;
+    this._length--;
+    return aux;
+  }
+}
+/*LinkedList.prototype.remove=function(){
+
+  if(!this.head) return false;
+  if(this.head.next === null){
+    let aux = this.head;
+    this.head = null;
+    return aux.value;
+  }else{
+    let current = this.head;
+    while(current.next.next!=null){
+      current =current.next;
+    }
+    let aux = current.next.value;
+    current.next =null;
+    return aux;
+  }
+};*/
+
+
+LinkedList.prototype.search=function(param){
+  if(!this.head) return null;
+  let current = this.head;
+  while(current){
+    if(typeof current.value !=='function'){
+      if(current.value==param){
+        return current.value;
+      }
+    }
+    current=current.next;
+  }
+
+};
 
 /*
 Implementar la clase HashTable.
