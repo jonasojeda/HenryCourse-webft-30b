@@ -81,7 +81,7 @@ BinarySearchTree.prototype.contains= function(value){
 BinarySearchTree.prototype.depthFirstForEach= function(callBack,order){
   if (order === "pre-order"){
     callBack(this.value);
-    console.log(this.value)
+    //console.log(this.value)
     if(this.left){
       this.left.depthFirstForEach(callBack,order);
     }
