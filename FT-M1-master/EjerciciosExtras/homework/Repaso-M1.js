@@ -14,9 +14,19 @@ const {
 // Pista: utilizar el método Array.isArray() para determinar si algun elemento de array es un array anidado
 // [Para más información del método: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/isArray]
 
+
 var countArray = function(array) {
     // Tu código aca:
+    let sum = 0;
     
+    for(let i = 0; i<array.length; i++  ){
+        if(Array.isArray(array[i])){
+            sum += countArray(array[i]); 
+        }else{
+            sum+= array[i]
+        }
+    }
+    return sum;
 }
 
 
@@ -39,9 +49,36 @@ var countArray = function(array) {
 
 var countProps = function(obj) {
     // Tu código aca:
+    //input : obejtos;
+    //output: cantidad;
+    let sum = 0;
 
+    for(let prop in obj){
+        if(typeof obj[prop]=== 'object' && !Array.isArray(obj[prop])){
+            sum = sum + countProps(obj[prop]);
+        }
+        sum++
+        
+    }
+    return sum;
 }
 
+/*var countProps = function(obj) {
+    // Tu código aca:
+    //input : obejtos;
+    //output: cantidad;
+
+    let cantidad = 0;
+
+    for(const key in obj){
+        //El valor de la key --> es obj o es otra cosa
+        if(typeof obj[key] === 'object' && Array.isArray(obj[key])){
+            cantidad += countArray(obj[key])
+        }
+        cantidad++
+    }
+    return cantidad;
+} */
 
 // Implementar el método changeNotNumbers dentro del prototype de LinkedList que deberá cambiar
 // aquellos valores que no puedan castearse a numeros por 'Kiricocho' y devolver la cantidad de cambios que hizo
@@ -53,8 +90,19 @@ var countProps = function(obj) {
 
 LinkedList.prototype.changeNotNumbers = function(){
     // Tu código aca:
-
+    //input linkedlist
+    let current = this.head
+    sum = 0;
+    while(current){
+        if(Number.isNaN(Number(current.value))){// "Hranco" --> NaN
+            current.value="Kiricocho";
+            sum++;
+        }
+        current = current.next;
+    }
+    return sum;
 }
+
 
 
 // Implementar la función mergeQueues que a partir de dos queues recibidas por parametro
@@ -67,8 +115,32 @@ LinkedList.prototype.changeNotNumbers = function(){
 
 var mergeQueues = function(queueOne, queueTwo) {
     // Tu código aca:
+    // input queue
+    
+    let nQueue= new Queue();
 
+    while(queueOne.size() || queueTwo.size()){
+        if(queueOne.size()) nQueue.enqueue(queueOne.dequeue());
+        if(queueTwo.size()) nQueue.enqueue(queueTwo.dequeue());
+    }
+
+    if(nQueue.size()==0)return false;
+    return nQueue;
 }
+
+/*var mergeQueues = function(queueOne, queueTwo) {
+    // Tu código aca:
+    let result = new Queue();
+
+    while(queueOne.size() || queueTwo.size()){
+
+        if(queueOne.size()) result.enqueue(queueOne.dequeue())
+
+        if(queueTwo.size()) result.enqueue(queueTwo.dequeue())
+    }
+
+    return result;
+} */
 
 
 // Implementar la funcion closureMult que permita generar nuevas funciones que representen
@@ -82,8 +154,14 @@ var mergeQueues = function(queueOne, queueTwo) {
 
 var closureMult = function(multiplier) {
     // Tu código aca:
-
 }
+
+/*var closureMult = function(multiplier) {
+    // Tu código aca:
+    return function(params){
+        return multiplier * params;
+    }
+} */
 
 // Implementar el método sum dentro del prototype de BinarySearchTree
 // que debe retornar la suma total de los valores dentro de cada nodo del arbol
@@ -91,6 +169,18 @@ BinarySearchTree.prototype.sum = function() {
     // Tu código aca:
 
 }
+
+/*BinarySearchTree.prototype.sum = function() {
+    // Tu código aca:
+    let suma = this.value;
+    // si tiene izquierda
+    if(this.left) return suma += this.left.sum();
+
+    //si tiene derecha
+    if(this.right) return suma += this.right.sum();
+
+    return suma;
+}*/
 
 module.exports = {
     countArray,
