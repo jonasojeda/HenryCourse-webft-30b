@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-image: url(https://i0.wp.com/www.megavoxels.com/wp-content/uploads/2022/05/Pixel-Art-Clouds-1.jpeg?w=640&ssl=1);
+  background-repeat: repeat;
 }
 
 .App-logo {
@@ -26,6 +28,11 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.containerCards{
+  display: grid;
+  
 }
 
 @keyframes App-logo-spin {

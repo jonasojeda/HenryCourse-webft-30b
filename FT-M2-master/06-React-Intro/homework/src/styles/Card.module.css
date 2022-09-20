@@ -1,0 +1,21 @@
+.card{
+    display: inline-block;
+    margin-right: 20px;
+    backdrop-filter: blur(10px);
+    border-top: #000 solid 1px ;
+    border-bottom: #000 solid 1px ;
+    border-left: #000 solid 1px ;
+    border-right: #000 solid 1px ;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+.btn{
+    position: relative;
+    top: 10px;
+    right: -120px;
+    background-color: red;
+    color: #000;
+    font-size: 30px;
+}
