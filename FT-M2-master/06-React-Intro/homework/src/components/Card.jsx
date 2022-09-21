@@ -6,9 +6,9 @@ export default function Card(props) {
   return <>
   <div className={s.card}>
     <button onClick={props.onClose} className={s.btn} >x</button>
-    <h1>Max {props.max}</h1>
-    <h1>Min {props.min}</h1>
-    <h1>{props.name}</h1>`
+    <h1>{props.name}</h1>
+    <p>Max {props.max}</p>
+    <p>Min {props.min}</p>
     <img src={`http://openweathermap.org/img/wn/${props.img}@2x.png`} alt="" />
   </div>
 

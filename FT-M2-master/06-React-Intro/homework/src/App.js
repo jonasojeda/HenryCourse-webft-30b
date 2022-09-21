@@ -8,19 +8,19 @@ import data, { Cairns } from './data.js';
 function App() {
   return (
     <div className="App">
-      <div>
-        Weather
-      </div>
-      <hr />
-      <div>
-        <Cards
-          cities={data}
-        />
+      <div className='Header'>
+        WeatherApp
       </div>
       <hr />
       <div>
         <SearchBar
           onSearch={(ciudad) => alert(ciudad)}
+        />
+      </div>
+      <hr />
+      <div>
+        <Cards
+          cities={data}
         />
       </div>
     </div>
