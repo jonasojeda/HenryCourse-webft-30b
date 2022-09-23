@@ -1,5 +1,5 @@
 //Modificar esta línea para poder manejar el estado
-import React, { useState } from 'react'; //Se agregó el { useState }
+import React, { useState} from 'react'; //Se agregó el { useState }
 import Nav from './components/Nav.jsx'
 import Cards from './components/Cards.jsx'
 import './App.css';
