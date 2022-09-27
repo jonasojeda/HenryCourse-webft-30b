@@ -1,3 +1,4 @@
+//INVOCO LOS TIPOS DE ACCIONES DESDE LA CARPETA ACTION TYPES
 const { INCREMENTO, DECREMENTO } = require('../action-types');
 
 // Nuestras actions (action creators) devolverán un paquete de actions que nuestro reducer recibirá. 
@@ -5,9 +6,13 @@ const { INCREMENTO, DECREMENTO } = require('../action-types');
 // de manejar ninguna de las lógicas actuales de actualización del store central de Redux.
 // Eso se lo deja al reducer(s).
 
-const incremento = null;
+//NOTA (LAS ACTION CREATORS ENVIAN LOS OBJETOS  CON EL TYPE OBLIGATORIO) LAS DECLARAMOS
+//COMO ARROW FUNCTION 
+//NOTA 2 SE LAS ENVIAMOS A LOS REDUCERS
 
-const decremento = null;
+const incremento = ()=>{return {type:INCREMENTO}} ;
+
+const decremento = ()=>{return {type:DECREMENTO}} ;
 
 module.exports = {
   incremento,
