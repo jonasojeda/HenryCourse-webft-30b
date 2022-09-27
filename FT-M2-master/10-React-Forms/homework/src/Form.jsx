@@ -29,7 +29,7 @@ export default function  Form() {
     password: '',
   });
 
-  let handleInputChange = (e)=>{ // 'e' de elemento
+  let handleInputChange = (e)=>{ // 'e' de evento
     // [e.target.name] --> Esto me permite manipular dos inputs disitntos con la misma funcion
     // obtiene el nombre del atributo name del input que conincide con la propiedad del 
     // objeto del estado
