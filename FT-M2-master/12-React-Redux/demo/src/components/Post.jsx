@@ -4,13 +4,13 @@ import * as actionCreators from '../actions/index.js';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-const Post = ({ loading, post, fetchPost }) =>  (
+const Post = ({ loading, post, fetchPost }) =>  ( 
   <div>
-      <input name='id' />
+      <input name='id' />       
       <button onClick={(e) => {
         e.preventDefault();
         const value = document.querySelector('input').value;
-        fetchPost(value);
+        fetchPost(value); {/** store.dispatch(fetchPost(input = 2)) */}
       }} >
         get
       </button>

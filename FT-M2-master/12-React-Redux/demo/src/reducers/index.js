@@ -22,6 +22,7 @@ export default (state = initialState, action) => {
         ...state,
         count: 0,
       }
+      //////////////////////////////////////
     case 'GET_POST':
       return {
         ...state,
