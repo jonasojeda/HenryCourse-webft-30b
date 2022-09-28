@@ -1,5 +1,5 @@
 //INVOCAMOS DESDE ACTION-TYPES  
-const { INCREMENTO, DECREMENTO } = require('../action-types');
+const { INCREMENTO, DECREMENTO,INCREMENTO_IMPAR } = require('../action-types');
 
 //DECLARAMOS EL VALOR INCIAL
 const initialState = {
@@ -23,6 +23,17 @@ function contador(state = initialState, action) {
       return {
         ...state, contador: state.contador -1 
       }
+
+    case INCREMENTO_IMPAR:
+
+      if((state.contador%2) != 0){
+        return{
+          ...state, contador: state.contador + 1
+        } 
+      }else{
+        return {...state}
+      }
+      
       
     // NUNCA OLVIDARSE DEL CASO DEFAULT!
     default:

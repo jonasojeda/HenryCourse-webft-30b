@@ -3,7 +3,7 @@ const { createStore } = require('redux');
 //Importamos el REDUCER
 const contador = require('./reducer');
 
-const { incremento, decremento } = require('./actions');
+const { incremento, decremento, incrementoImpar } = require('./actions');
 
 // En esta linea creamos nuestro store. Pasandole como parametro nuestro Reducer
 //1 PARAMETRO - REDUCER
@@ -41,5 +41,7 @@ store.subscribe(renderContador);
 document.getElementById('incremento').onclick=()=> store.dispatch(incremento());
 
 document.getElementById('decremento').onclick=()=> store.dispatch(decremento());
+
+document.getElementById('incrementoImpar').onclick=()=> store.dispatch(incrementoImpar());
 //                         ^                                         ^
 //                     id en el documento html          funcion decremento o incremento
